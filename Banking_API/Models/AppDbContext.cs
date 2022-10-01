@@ -8,8 +8,8 @@ namespace Banking_API.Models
         {
 
         }
-        public DbSet<AdminLogIn> AdminLogIn { get; set; }
-        public DbSet<UserLogin> UserLogIn { get; set; }
+       
+        public DbSet<UserLoginDetail> UserLogIn { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<UserAccountDetail> UserAccountDetails { get; set; }
         public DbSet<TransactionDetail> Transactions { get; set; }

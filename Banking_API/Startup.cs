@@ -29,7 +29,17 @@ namespace Banking_API
         {
             services.AddDbContext<AppDbContext>(item =>
             item.UseSqlServer(Configuration.GetConnectionString("MyConStr")));
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
+
+            services.AddCors(setup =>
+            {
+                setup.AddPolicy("default", options =>
+                {
+                    options.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod();
+                });
+
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,7 +49,7 @@ namespace Banking_API
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCors("default");
             app.UseHttpsRedirection();
 
             app.UseRouting();

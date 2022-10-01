@@ -16,7 +16,7 @@ namespace Banking_API.Models
 
         public decimal Amount { get; set; }
 
-        public DateTime TransactionDate { get; set; }
+        public DateTime? TransactionDate { get; set; }
         public string Remarks { get; set; }
     }
 }
